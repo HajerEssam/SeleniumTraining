@@ -51,6 +51,7 @@ public class ServicesTests {
 
     @AfterMethod
     public void quitTest() {
-        //driver.quit();
+        driver.quit();
     }
 }
+
