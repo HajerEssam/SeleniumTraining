@@ -3,6 +3,10 @@ package org.pom;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class IndividualsLoginPage extends BasePage{
     private WebDriver driver;
@@ -25,6 +29,10 @@ public class IndividualsLoginPage extends BasePage{
     public void loginAsIndividual(String id) throws InterruptedException {
         sendKeys(locateElementsInShadowRoot(nationalIdHost,nationalIdRoot),id);
         click(driver.findElement(mockLoginButton));
-        waitForVisibility(driver.findElement(HomepageTitle));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.urlToBe(
+                "https://portal.individual.namaa.sumerge.com/landing"
+        ));
     }
 }
+
