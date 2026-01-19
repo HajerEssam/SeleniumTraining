@@ -15,7 +15,6 @@ public class EntityHomePage extends BasePage{
     public EntityHomePage(WebDriver driver){
         super(driver);
         this.driver=driver;
-        driver.navigate().refresh();
     }
 
     public EntityHomePage goToAssessmentRequests(){
@@ -34,3 +33,4 @@ public class EntityHomePage extends BasePage{
         Assert.assertEquals(getText(driver.findElement(firstRequestNumber)),id);
     }
 }
+
